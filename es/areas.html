@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Zona de Servicio | Autocool Aircon, Torrevieja y Costa Blanca</title>
+		<meta
+			name="description"
+			content="Autocool Aircon cubre Torrevieja y cualquier punto a unos 30 minutos en coche por la Costa Blanca. Recarga y servicio del aire acondicionado a domicilio."
+		/>
+		<link rel="alternate" hreflang="en" href="../areas.html" />
+		<link rel="stylesheet" href="../assets/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""
+		/>
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container">
+				<a href="index.html" class="logo-mark">
+					<img
+						src="../assets/img/logo/autocool-wordmark.png"
+						alt="Autocool Aircon — Especialista en Aire Acondicionado de Automoción"
+						class="logo-img"
+					/>
+				</a>
+				<nav class="main-nav">
+					<ul>
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="services.html">Servicios</a></li>
+						<li><a href="about.html">Quiénes somos</a></li>
+						<li><a href="areas.html" class="active">Zona de servicio</a></li>
+						<li><a href="contact.html">Contacto</a></li>
+					</ul>
+				</nav>
+				<a class="lang-switch" href="../areas.html">EN</a>
+			</div>
+		</header>
+
+		<section class="hero">
+			<div class="container">
+				<div>
+					<h1>Zona de Servicio</h1>
+					<p class="hero-location">Ubicados en Torrevieja, Costa Blanca</p>
+					<p class="lede">
+						Somos un servicio móvil y nos desplazamos a donde estés. Como
+						orientación, si estás a unos 30 minutos en coche de Torrevieja,
+						llegamos.
+					</p>
+					<a
+						class="btn-primary"
+						href="https://wa.me/34711082029"
+						target="_blank"
+						rel="noopener"
+						>WhatsApp +34 711 082 029</a
+					>
+				</div>
+				<div class="hero-icon-panel">
+					<img src="../assets/img/logo/autocool-icon.png" alt="Autocool Aircon" />
+				</div>
+			</div>
+		</section>
+
+		<section class="block">
+			<div class="container split">
+				<div>
+					<h2>Comprueba si llegamos a tu zona</h2>
+					<p style="color: var(--text-muted)">
+						La zona sombreada en el mapa es la cobertura aproximada, unos 30
+						minutos en coche desde Torrevieja. Es orientativa, no un límite fijo,
+						así que si estás justo fuera, escríbenos igualmente.
+					</p>
+					<p style="color: var(--text-muted)">
+						Con el nombre del municipio y el código postal por WhatsApp nos basta
+						para confirmarlo.
+					</p>
+					<p class="pending-note">
+						Próximamente, lista completa de municipios en zona de cobertura.
+					</p>
+				</div>
+				<div id="coverage-map" class="coverage-map"></div>
+			</div>
+		</section>
+
+		<section class="cta-band">
+			<div class="container">
+				<h2>Envíanos tu ubicación</h2>
+				<p>
+					Escríbenos por WhatsApp y te confirmamos enseguida si llegamos a tu
+					zona.
+				</p>
+				<a
+					class="btn-primary"
+					href="https://wa.me/34711082029"
+					target="_blank"
+					rel="noopener"
+					>Escríbenos por WhatsApp</a
+				>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<div class="container">
+				<span>&copy; 2026 Autocool Aircon — Torrevieja, Costa Blanca</span>
+				<span
+					><a href="https://wa.me/34711082029" target="_blank" rel="noopener"
+						>WhatsApp</a
+					>
+					&middot;
+					<a href="mailto:info@autocoolaircon.com"
+						>info@autocoolaircon.com</a
+					></span
+				>
+			</div>
+		</footer>
+
+		<script
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""
+		></script>
+		<script>
+			// Torrevieja town centre, approx coords
+			var torrevieja = [37.9787, -0.6822];
+
+			var map = L.map("coverage-map", {
+				scrollWheelZoom: true,
+			}).setView(torrevieja, 9);
+
+			L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+				maxZoom: 30,
+				attribution:
+					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			}).addTo(map);
+
+			// Approx 30-minute-drive radius from Torrevieja. This is a rough circle,
+			// not a true drive-time isochrone — replace with a confirmed shape once
+			// Nico's full coverage area / town list is finalised.
+			L.circle(torrevieja, {
+				radius: 40000, // metres
+				color: "#d63b2f",
+				weight: 2,
+				fillColor: "#4fb3c4",
+				fillOpacity: 0.25,
+			}).addTo(map);
+
+			L.marker(torrevieja).addTo(map).bindPopup("Autocool Aircon — based here");
+
+			// Leaflet measures its container's size at init time. If page layout
+			// (grid/flex) hasn't fully settled yet, it can measure the wrong size,
+			// which throws off both rendering AND the calculated centre point.
+			// invalidateSize() alone only fixes the size — it does NOT recentre the
+			// map, so we explicitly re-set the view on Torrevieja straight after.
+			setTimeout(function () {
+				map.invalidateSize();
+				map.setView(torrevieja, 9);
+			}, 200);
+
+			window.addEventListener("resize", function () {
+				map.invalidateSize();
+			});
+		</script>
+	</body>
+</html>

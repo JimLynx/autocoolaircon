@@ -17,6 +17,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	margin: 0;
 	font-family:
@@ -93,6 +97,7 @@ header.site-header {
 .logo-mark .logo-img {
 	width: 200px;
 	height: auto;
+	aspect-ratio: 1000 / 184;
 	display: block;
 }
 
@@ -191,6 +196,7 @@ nav.main-nav a.active {
 	width: 100%;
 	max-width: 360px;
 	height: auto;
+	aspect-ratio: 846 / 639;
 }
 
 .btn-primary {
