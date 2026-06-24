@@ -1,3 +1,1 @@
 # autocoolaircon
-
-Initial project scaffold.
