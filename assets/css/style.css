@@ -152,12 +152,81 @@ nav.main-nav a.active {
 	color: var(--sun-red);
 }
 
-.lang-switch {
-	font-size: 0.85rem;
-	font-weight: 600;
-	color: var(--text-muted);
+/* Language toggle — replaces the old text-link .lang-switch.
+   Pill switch with sliding handle, EN/ES word labels either side.
+   Uses existing palette variables, no new colors introduced. */
+
+.lang-toggle {
 	border-left: 1px solid #ddd;
 	padding-left: 16px;
+}
+
+.lang-toggle-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+}
+
+.lang-toggle-link:hover {
+	text-decoration: none;
+}
+
+.lang-toggle-link:focus-visible {
+	outline: 3px solid var(--brand-blue-light);
+	outline-offset: 3px;
+	border-radius: 11px;
+}
+
+.lang-toggle-label {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	transition:
+		color 0.25s,
+		opacity 0.25s;
+}
+
+.lang-toggle-label.is-active {
+	color: var(--brand-blue);
+	opacity: 1;
+}
+
+.lang-toggle[data-lang="es"] .lang-toggle-label.is-active {
+	color: var(--sun-red);
+}
+
+.lang-toggle-switch {
+	position: relative;
+	display: inline-block;
+	width: 44px;
+	height: 22px;
+	border-radius: 11px;
+	background: var(--brand-blue);
+	transition: background-color 0.25s;
+	flex-shrink: 0;
+}
+
+.lang-toggle-switch.is-es {
+	background: var(--sun-red);
+}
+
+.lang-toggle-handle {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: var(--white);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	transition: left 0.25s;
+}
+
+.lang-toggle-switch.is-es .lang-toggle-handle {
+	left: 24px;
 }
 
 .btn-whatsapp {
@@ -735,6 +804,15 @@ footer.site-footer a {
 		right: 0;
 		max-width: none;
 		border-radius: var(--radius) var(--radius) 0 0;
+	}
+
+	.lang-toggle {
+		padding-left: 10px;
+		gap: 6px;
+	}
+
+	.lang-toggle-label {
+		font-size: 0.6rem;
 	}
 }
 

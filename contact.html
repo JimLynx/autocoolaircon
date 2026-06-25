@@ -36,7 +36,19 @@
 						<li><a href="contact.html" class="active">Contact</a></li>
 					</ul>
 				</nav>
-				<a class="lang-switch" href="es/contact.html">ES</a>
+				<div class="lang-toggle">
+					<a
+						class="lang-toggle-link"
+						href="es/contact.html"
+						aria-label="Switch to Spanish"
+					>
+						<span class="lang-toggle-label" data-lang="en">ENGLISH</span>
+						<span class="lang-toggle-switch"
+							><span class="lang-toggle-handle"></span
+						></span>
+						<span class="lang-toggle-label" data-lang="es">ESPAÑOL</span>
+					</a>
+				</div>
 			</div>
 		</header>
 
@@ -182,6 +194,7 @@
 
 		<script src="assets/js/scroll-fade.js"></script>
 		<script src="assets/js/sticky-header.js"></script>
+		<script src="assets/js/lang-switch.js"></script>
 		<script src="assets/js/email-modal.js"></script>
 	</body>
 </html>
