@@ -1,11 +1,12 @@
 /* Autocool Aircon — shared stylesheet
-   Palette locked to existing logo per Nico: sun red, snowflake teal, sand accent.
+   Palette locked to existing logo per Nico: sun red, brand blue, sand accent.
    no diagonal stock-photo cutouts — deliberately simpler than
    the UK site's template execution. */
 
 :root {
 	--sun-red: #c8141a;
-	--snow-teal: #0d52b9;
+	--brand-blue: #0d52b9;
+	--brand-blue-light: #7ab8f0;
 	--ink: #0a1f4a;
 	--sand: #f4ede1;
 	--white: #ffffff;
@@ -47,7 +48,7 @@ a:hover {
 }
 a:focus-visible,
 button:focus-visible {
-	outline: 3px solid var(--snow-teal);
+	outline: 3px solid var(--brand-blue);
 	outline-offset: 2px;
 }
 
@@ -136,7 +137,7 @@ nav.main-nav a.active {
 	display: inline-flex;
 	align-items: center;
 	gap: 10px;
-	background: #25d366;
+	background: #178043;
 	color: var(--white);
 	font-weight: 700;
 	padding: 14px 26px;
@@ -151,7 +152,7 @@ nav.main-nav a.active {
 }
 
 .btn-whatsapp:hover {
-	background: #1ebe5b;
+	background: #126334;
 	text-decoration: none;
 }
 
@@ -180,7 +181,7 @@ nav.main-nav a.active {
 
 .hero p.hero-location {
 	font-size: 1.25rem;
-	color: var(--snow-teal);
+	color: var(--brand-blue-light);
 	font-weight: 700;
 	margin: 0 0 18px;
 }
@@ -208,7 +209,7 @@ nav.main-nav a.active {
 }
 
 .hero-offer-line .amount {
-	color: var(--sun-red);
+	color: var(--white);
 	font-weight: 800;
 }
 
@@ -239,7 +240,7 @@ nav.main-nav a.active {
 }
 
 .btn-primary:hover {
-	background: #b83025;
+	background: #a01015;
 	text-decoration: none;
 }
 
@@ -300,8 +301,8 @@ section.block h2 {
 	width: 72px;
 	height: 72px;
 	border-radius: 50%;
-	background: var(--snow-teal);
-	color: var(--ink);
+	background: var(--brand-blue);
+	color: var(--white);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -336,7 +337,7 @@ section.block h2 {
 	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 0.04em;
-	color: var(--snow-teal);
+	color: var(--brand-blue-light);
 	margin: 0;
 }
 
@@ -481,7 +482,7 @@ section.block h2 {
 	font-size: 0.85rem;
 	color: var(--text-muted);
 	font-style: italic;
-	border-left: 3px solid var(--snow-teal);
+	border-left: 3px solid var(--brand-blue);
 	padding-left: 12px;
 	margin-top: 18px;
 }
@@ -497,8 +498,8 @@ section.block h2 {
 
 /* CTA band */
 .cta-band {
-	background: var(--snow-teal);
-	color: var(--ink);
+	background: var(--brand-blue);
+	color: var(--white);
 	padding: 40px 0;
 	text-align: center;
 }
@@ -509,14 +510,13 @@ section.block h2 {
 }
 .cta-band p {
 	margin: 0 0 20px;
-	color: #1c2b30;
 }
 
 .cta-band .btn-primary {
 	background: var(--ink);
 }
 .cta-band .btn-primary:hover {
-	background: #0e1719;
+	background: #061330;
 }
 
 /* Footer */
