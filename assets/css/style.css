@@ -500,6 +500,11 @@ section.block h2 {
 	margin: 0 auto;
 }
 
+.contact-img {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
 /* Testimonials */
 .testimonial-feature {
 	background: var(--ink);
@@ -672,6 +677,14 @@ section.block h2 {
 
 .why-img-placeholder {
 	aspect-ratio: 4 / 3;
+}
+
+.section-img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: var(--radius);
+	border-bottom: 4px solid var(--sun-red);
 }
 
 .price-list {
