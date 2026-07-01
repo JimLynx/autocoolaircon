@@ -845,6 +845,18 @@ footer.site-footer a {
 	color: var(--white);
 }
 
+.footer-links {
+	display: inline-flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.footer-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
 /* Scroll fade-in */
 .fade-in {
 	opacity: 0;
