@@ -687,9 +687,18 @@ section.block h2 {
 	border-bottom: 4px solid var(--sun-red);
 }
 
+.price-subheading {
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: var(--brand-blue);
+	margin: 24px 0 8px;
+}
+
 .price-list {
 	list-style: none;
-	margin: 24px 0 0;
+	margin: 0;
 	padding: 0;
 	display: grid;
 	gap: 12px;
@@ -707,6 +716,14 @@ section.block h2 {
 
 .price-list span.amount {
 	color: var(--sun-red);
+}
+
+.price-note {
+	font-size: 0.8rem;
+	color: var(--text-muted);
+	max-width: 480px;
+	margin-top: 8px;
+	text-align: right;
 }
 
 .pending-note {
