@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://autocoolaircon.es/sitemap.xml
