@@ -347,7 +347,8 @@ html[lang="es"] .lang-toggle-switch .lang-toggle-handle {
 	display: grid;
 	grid-template-columns: 1.1fr 0.9fr;
 	gap: 40px;
-	align-items: start;
+	align-items: center;
+	min-height: 360px;
 	position: relative;
 	z-index: 1;
 }
@@ -908,6 +909,7 @@ footer.site-footer a {
 
 	.hero .container {
 		grid-template-columns: 1fr;
+		min-height: 0;
 	}
 
 	.hero {
