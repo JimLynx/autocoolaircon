@@ -152,6 +152,40 @@ nav.main-nav a.active {
 	color: var(--sun-red);
 }
 
+/* Hamburger toggle button — hidden on desktop */
+.nav-toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 6px;
+	margin-left: auto;
+}
+
+.nav-toggle-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: var(--ink);
+	border-radius: 1px;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+	opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Language toggle — replaces the old text-link .lang-switch.
    Pill switch with sliding handle, EN/ES word labels either side.
    Uses existing palette variables, no new colors introduced. */
@@ -159,6 +193,10 @@ nav.main-nav a.active {
 .lang-toggle {
 	border-left: 1px solid #ddd;
 	padding-left: 16px;
+}
+
+.lang-switcher-mobile {
+	display: none;
 }
 
 .lang-toggle-link {
@@ -184,9 +222,6 @@ nav.main-nav a.active {
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: var(--text-muted);
-	transition:
-		color 0.25s,
-		opacity 0.25s;
 }
 
 .lang-toggle-label.is-active {
@@ -205,7 +240,6 @@ nav.main-nav a.active {
 	height: 22px;
 	border-radius: 11px;
 	background: var(--brand-blue);
-	transition: background-color 0.25s;
 	flex-shrink: 0;
 }
 
@@ -222,11 +256,39 @@ nav.main-nav a.active {
 	border-radius: 50%;
 	background: var(--white);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-	transition: left 0.25s;
 }
 
 .lang-toggle-switch.is-es .lang-toggle-handle {
 	left: 24px;
+}
+
+/* CSS-first state: set from html[lang] before any JS runs.
+   Correct state is visible on first paint — no transition fires on load. */
+html[lang="en"] .lang-toggle-label[data-lang="en"],
+html[lang="es"] .lang-toggle-label[data-lang="es"] {
+	color: var(--brand-blue);
+	opacity: 1;
+}
+html[lang="es"] .lang-toggle-label[data-lang="es"] {
+	color: var(--sun-red);
+}
+html[lang="es"] .lang-toggle-switch {
+	background: var(--sun-red);
+}
+html[lang="es"] .lang-toggle-switch .lang-toggle-handle {
+	left: 24px;
+}
+
+/* Transitions enabled only after JS adds .lang-toggle-ready on the first rAF.
+   Ensures transitions only fire on user interaction, never on initial paint. */
+.lang-toggle-ready .lang-toggle-label {
+	transition: color 0.25s, opacity 0.25s;
+}
+.lang-toggle-ready .lang-toggle-switch {
+	transition: background-color 0.25s;
+}
+.lang-toggle-ready .lang-toggle-handle {
+	transition: left 0.25s;
 }
 
 .btn-whatsapp {
@@ -254,9 +316,31 @@ nav.main-nav a.active {
 
 /* Hero (home page) */
 .hero {
-	background: var(--ink);
+	background: #ffffff;
 	color: var(--white);
 	padding: 64px 0 56px;
+	position: relative;
+	overflow: hidden;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--ink);
+	clip-path: polygon(0 0, 57% 0, 49% 100%, 0 100%);
+	z-index: 0;
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='56.9,0 57.4,0 49.4,100 48.9,100' fill='%23c8141a'/%3E%3C/svg%3E");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 .hero .container {
@@ -264,6 +348,8 @@ nav.main-nav a.active {
 	grid-template-columns: 1.1fr 0.9fr;
 	gap: 40px;
 	align-items: start;
+	position: relative;
+	z-index: 1;
 }
 
 .hero h1 {
@@ -314,6 +400,21 @@ nav.main-nav a.active {
 	align-items: center;
 	justify-content: center;
 	padding: 8px 12px 12px;
+	position: relative;
+}
+
+.hero-icon-panel::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 48%;
+	transform: translateX(-50%);
+	width: 65%;
+	height: 3px;
+	background: linear-gradient(to right, transparent, #c8141a 25%, #c8141a 75%, transparent);
+	border-radius: 0;
+	z-index: 0;
+	pointer-events: none;
 }
 
 .hero-cta-row {
@@ -323,6 +424,8 @@ nav.main-nav a.active {
 }
 
 .hero-icon-panel img {
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	max-width: 360px;
 	height: auto;
@@ -750,6 +853,59 @@ footer.site-footer a {
 }
 
 @media (max-width: 760px) {
+	/* Mobile hamburger — collapsed by default in CSS, no JS required */
+	.nav-toggle {
+		display: flex;
+	}
+
+	nav.main-nav {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--white);
+		border-bottom: 1px solid #eee;
+		max-height: 0;
+		overflow: hidden;
+		/* transition added by JS after first frame — prevents animation on page load */
+	}
+
+	nav.main-nav.nav-animate {
+		transition: max-height 0.25s ease;
+	}
+
+	nav.main-nav.is-open {
+		max-height: 360px;
+	}
+
+	nav.main-nav ul {
+		flex-direction: column;
+		gap: 0;
+		padding: 8px 24px 12px;
+	}
+
+	nav.main-nav li a {
+		display: block;
+		padding: 11px 0;
+		border-bottom: 1px solid #f0f0f0;
+	}
+
+	nav.main-nav li:last-child a {
+		border-bottom: none;
+	}
+
+	.hero::before {
+		clip-path: none;
+	}
+
+	.hero::after {
+		display: none;
+	}
+
+	.hero-icon-panel {
+		display: none;
+	}
+
 	.hero .container {
 		grid-template-columns: 1fr;
 	}
@@ -764,10 +920,6 @@ footer.site-footer a {
 
 	.logo-mark .logo-img {
 		width: 155px;
-	}
-
-	.hero-icon-panel img {
-		max-width: 220px;
 	}
 
 	nav.main-nav ul {
@@ -807,12 +959,40 @@ footer.site-footer a {
 	}
 
 	.lang-toggle {
-		padding-left: 10px;
-		gap: 6px;
+		border-left: none;
+		padding-left: 0;
 	}
 
-	.lang-toggle-label {
-		font-size: 0.6rem;
+	.lang-toggle-link {
+		display: none;
+	}
+
+	.lang-switcher-mobile {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+	}
+
+	.lang-switcher-label {
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+
+	html[lang="en"] .lang-switcher-label[data-lang="en"] {
+		color: var(--brand-blue);
+	}
+
+	html[lang="es"] .lang-switcher-label[data-lang="es"] {
+		color: var(--sun-red);
+	}
+
+	.lang-sep {
+		color: var(--text-muted);
+		opacity: 0.4;
+		user-select: none;
 	}
 }
 

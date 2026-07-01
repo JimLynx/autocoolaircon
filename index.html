@@ -18,6 +18,12 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="assets/css/style.css" />
+		<noscript><style>
+			@media (max-width: 760px) {
+				nav.main-nav { max-height: none !important; overflow: visible !important; position: static !important; }
+				.nav-toggle { display: none !important; }
+			}
+		</style></noscript>
 	</head>
 	<body>
 		<header class="site-header">
@@ -27,9 +33,10 @@
 						src="assets/img/logo/autocool-wordmark.png"
 						alt="Autocool Aircon: Automotive Air Conditioning Specialist"
 						class="logo-img"
+						width="1000" height="184"
 					/>
 				</a>
-				<nav class="main-nav">
+				<nav class="main-nav" id="main-nav">
 					<ul>
 						<li><a href="index.html" class="active">Home</a></li>
 						<li><a href="services.html">Services</a></li>
@@ -50,7 +57,17 @@
 						></span>
 						<span class="lang-toggle-label" data-lang="es">ESPAÑOL</span>
 					</a>
+					<div class="lang-switcher-mobile">
+						<a class="lang-switcher-label" data-lang="en" href="index.html">EN</a>
+						<span class="lang-sep" aria-hidden="true">/</span>
+						<a class="lang-switcher-label" data-lang="es" href="es/index.html">ES</a>
+					</div>
 				</div>
+				<button class="nav-toggle" aria-expanded="false" aria-label="Open navigation" aria-controls="main-nav">
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+				</button>
 			</div>
 		</header>
 
@@ -59,7 +76,7 @@
 				<div>
 					<h1>Mobile Air Con Regas &amp; Service</h1>
 					<p class="hero-location">
-						Torrevieja &amp; Costa Blanca — we come to you
+						Torrevieja &amp; Costa Blanca. We come to you.
 					</p>
 					<p class="lede">
 						Home, work, wherever you are. No garage visit needed.
@@ -156,7 +173,7 @@
 
 		<footer class="site-footer">
 			<div class="container">
-				<span>&copy; 2026 Autocool Aircon - Torrevieja, Costa Blanca</span>
+				<span>&copy; 2026 Autocool Aircon | Torrevieja, Costa Blanca</span>
 				<span
 					><a href="https://wa.me/34711082029" target="_blank" rel="noopener"
 						>WhatsApp</a
@@ -172,5 +189,6 @@
 		<script src="assets/js/scroll-fade.js"></script>
 		<script src="assets/js/sticky-header.js"></script>
 		<script src="assets/js/lang-switch.js"></script>
+		<script src="assets/js/nav-toggle.js"></script>
 	</body>
 </html>

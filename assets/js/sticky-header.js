@@ -3,6 +3,14 @@
 // Header stays solid white with dark nav text throughout; this only
 // adds depth once scrolling begins, it doesn't change colors.
 (function () {
+	// Prevent the browser from restoring a non-zero scroll position when the
+	// user revisits a page in the same session (e.g. toggling EN/ES repeatedly).
+	// Setting this once persists for the entire session via the History API.
+	if ("scrollRestoration" in history) {
+		history.scrollRestoration = "manual";
+	}
+	window.scrollTo(0, 0);
+
 	var header = document.querySelector("header.site-header");
 	if (!header) return;
 
