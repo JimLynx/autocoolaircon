@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://autocoolaircon.es/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/"/>
+  </url>
+  <url>
+    <loc>https://autocoolaircon.es/es/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/"/>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://autocoolaircon.es/services.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/services.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/services.html"/>
+  </url>
+  <url>
+    <loc>https://autocoolaircon.es/es/services.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/services.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/services.html"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://autocoolaircon.es/about.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/about.html"/>
+  </url>
+  <url>
+    <loc>https://autocoolaircon.es/es/about.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/about.html"/>
+  </url>
+
+  <!-- Areas -->
+  <url>
+    <loc>https://autocoolaircon.es/areas.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/areas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/areas.html"/>
+  </url>
+  <url>
+    <loc>https://autocoolaircon.es/es/areas.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/areas.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/areas.html"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://autocoolaircon.es/contact.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/contact.html"/>
+  </url>
+  <url>
+    <loc>https://autocoolaircon.es/es/contact.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://autocoolaircon.es/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://autocoolaircon.es/es/contact.html"/>
+  </url>
+
+</urlset>
