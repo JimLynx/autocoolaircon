@@ -453,6 +453,16 @@ html[lang="es"] .lang-toggle-switch .lang-toggle-handle {
 	text-decoration: none;
 }
 
+.btn-primary svg {
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
 /* Sections */
 section.block {
 	padding: 56px 0;
