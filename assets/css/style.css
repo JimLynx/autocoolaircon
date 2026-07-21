@@ -119,6 +119,7 @@ header.site-header.scrolled {
 	justify-content: space-between;
 	gap: 24px;
 	flex-wrap: wrap;
+	padding-right: 220px;
 }
 
 .logo-mark {
@@ -150,6 +151,79 @@ nav.main-nav a {
 
 nav.main-nav a.active {
 	color: var(--sun-red);
+}
+
+/* "Resources" dropdown — desktop: hover/focus reveal; mobile: tap to expand inline. */
+.nav-item-dropdown {
+	position: relative;
+}
+
+.nav-dropdown-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	color: var(--ink);
+	font-weight: 600;
+	font-size: 0.95rem;
+	cursor: pointer;
+}
+
+.nav-dropdown-toggle.active {
+	color: var(--sun-red);
+}
+
+.nav-dropdown-caret {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg) translateY(-3px);
+	transition: transform 0.2s ease;
+}
+
+.nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-caret {
+	transform: rotate(-135deg) translateY(1px);
+}
+
+nav.main-nav .nav-dropdown-menu {
+	list-style: none;
+	margin: 0;
+	padding: 8px 0;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: var(--white);
+	border: 1px solid #eee;
+	border-radius: var(--radius);
+	box-shadow: 0 8px 20px rgba(10, 31, 74, 0.1);
+	min-width: 160px;
+	display: none;
+	z-index: 60;
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown.is-open .nav-dropdown-menu {
+	display: block;
+}
+
+.nav-dropdown-menu li a {
+	display: block;
+	padding: 8px 16px;
+	color: var(--ink);
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+.nav-dropdown-menu li a:hover,
+.nav-dropdown-menu li a.active {
+	color: var(--sun-red);
+	background: var(--sand);
 }
 
 /* Hamburger toggle button — hidden on desktop */
@@ -191,8 +265,11 @@ nav.main-nav a.active {
    Uses existing palette variables, no new colors introduced. */
 
 .lang-toggle {
-	border-left: 1px solid #ddd;
-	padding-left: 16px;
+	position: absolute;
+	top: 50%;
+	right: 24px;
+	transform: translateY(-50%);
+	z-index: 10;
 }
 
 .lang-switcher-mobile {
@@ -948,6 +1025,42 @@ footer.site-footer a {
 		border-bottom: none;
 	}
 
+	nav.main-nav.is-open {
+		max-height: 480px;
+	}
+
+	.nav-dropdown-toggle {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		padding: 11px 0;
+		border-bottom: 1px solid #f0f0f0;
+	}
+
+	.nav-item-dropdown.is-open .nav-dropdown-toggle {
+		border-bottom-color: transparent;
+	}
+
+	nav.main-nav .nav-dropdown-menu {
+		position: static;
+		display: none;
+		margin: 0;
+		padding: 0 0 4px 16px;
+		background: none;
+		border: none;
+		box-shadow: none;
+		min-width: 0;
+	}
+
+	.nav-dropdown-menu li a {
+		padding: 8px 0;
+		border-bottom: 1px solid #f5f5f5;
+	}
+
+	.nav-dropdown-menu li:last-child a {
+		border-bottom: 1px solid #f0f0f0;
+	}
+
 	.hero::before {
 		clip-path: none;
 	}
@@ -1013,9 +1126,12 @@ footer.site-footer a {
 		border-radius: var(--radius) var(--radius) 0 0;
 	}
 
+	.site-header .container {
+		padding-right: 24px;
+	}
+
 	.lang-toggle {
-		border-left: none;
-		padding-left: 0;
+		right: 60px;
 	}
 
 	.lang-toggle-link {

@@ -38,6 +38,7 @@
 			@media (max-width: 760px) {
 				nav.main-nav { max-height: none !important; overflow: visible !important; position: static !important; }
 				.nav-toggle { display: none !important; }
+				.nav-dropdown-menu { display: block !important; position: static !important; box-shadow: none !important; }
 			}
 		</style></noscript>
 	</head>
@@ -56,9 +57,17 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="services.html">Services</a></li>
-						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="about.html" class="active">About</a></li>
 						<li><a href="areas.html">Areas Covered</a></li>
+						<li class="nav-item-dropdown">
+							<button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+								Resources
+								<span class="nav-dropdown-caret" aria-hidden="true"></span>
+							</button>
+							<ul class="nav-dropdown-menu">
+								<li><a href="faq.html">FAQ</a></li>
+							</ul>
+						</li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
 				</nav>
