@@ -874,8 +874,9 @@ footer.site-footer a {
 
 .footer-links {
 	display: inline-flex;
+	flex-wrap: wrap;
 	align-items: center;
-	gap: 20px;
+	gap: 10px 20px;
 }
 
 .footer-link {
