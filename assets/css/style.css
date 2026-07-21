@@ -945,6 +945,10 @@ footer.site-footer .container {
 	gap: 16px;
 }
 
+footer.site-footer .container + .container {
+	margin-top: 16px;
+}
+
 footer.site-footer a {
 	color: var(--white);
 }
