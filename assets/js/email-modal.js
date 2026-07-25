@@ -9,7 +9,7 @@
 	var copyBtn = document.getElementById("email-copy");
 	var copyLabel = copyBtn.querySelector("span");
 	var copyDefaultLabel = copyLabel.textContent;
-	var emailAddress = "info@autocoolaircon.com";
+	var emailAddress = "nico@autocoolaircon.es";
 
 	emailTrigger.addEventListener("click", function () {
 		emailModal.classList.add("open");
