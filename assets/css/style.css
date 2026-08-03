@@ -592,7 +592,9 @@ section.block h2 {
 }
 
 .contact-img {
-	max-width: 760px;
+	max-width: 420px;
+	aspect-ratio: 2 / 3;
+	object-fit: contain;
 	margin: 0 auto;
 }
 
