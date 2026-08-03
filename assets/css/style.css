@@ -780,6 +780,54 @@ section.block h2 {
 	border-bottom: 4px solid var(--sun-red);
 }
 
+/* Fade slideshow — used in the "Why your air con stops feeling cold" slot */
+.fade-slideshow {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border-radius: var(--radius);
+	border-bottom: 4px solid var(--sun-red);
+	overflow: hidden;
+}
+
+.fade-slide {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transition: opacity 1.2s ease;
+}
+
+.fade-slide.is-active {
+	opacity: 1;
+}
+
+.fade-slideshow-dots {
+	position: absolute;
+	bottom: 14px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 8px;
+	z-index: 2;
+}
+
+.fade-slideshow-dot {
+	width: 9px;
+	height: 9px;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.55);
+	cursor: pointer;
+}
+
+.fade-slideshow-dot.is-active {
+	background: #fff;
+}
+
 .price-subheading {
 	font-size: 0.8rem;
 	font-weight: 700;
