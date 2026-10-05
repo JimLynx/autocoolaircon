@@ -911,6 +911,11 @@ section.block h2 {
 }
 
 /* Email modal */
+/* Trigger is a link; keep the line height it had as a <button> */
+#email-trigger {
+	line-height: normal;
+}
+
 .email-modal {
 	position: fixed;
 	inset: 0;

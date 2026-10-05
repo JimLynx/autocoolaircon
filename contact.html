@@ -118,7 +118,12 @@
 								/></svg
 							>WhatsApp Us</a
 						>
-						<button id="email-trigger" class="btn-primary">Email Us</button>
+						<a
+							id="email-trigger"
+							class="btn-primary"
+							href="mailto:nico@autocoolaircon.es"
+							>Email Us</a
+						>
 					</div>
 				</div>
 				<div class="hero-icon-panel">
@@ -145,8 +150,13 @@
 		<!-- EMAIL MODAL -->
 		<div id="email-modal" class="email-modal" aria-hidden="true">
 			<div class="email-modal-backdrop"></div>
-			<div class="email-modal-panel">
-				<p class="email-modal-label">Open with</p>
+			<div
+				class="email-modal-panel"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="email-modal-label"
+			>
+				<p id="email-modal-label" class="email-modal-label">Open with</p>
 				<a
 					href="https://mail.google.com/mail/?view=cm&amp;to=nico@autocoolaircon.es"
 					target="_blank"
@@ -201,7 +211,7 @@
 							stroke-linecap="round"
 						/>
 					</svg>
-					Apple Mail
+					Default mail app
 				</a>
 				<button id="email-copy" class="email-modal-option email-modal-copy">
 					<svg viewBox="0 0 24 24" fill="none">
@@ -220,7 +230,7 @@
 							stroke-width="1.6"
 						/>
 					</svg>
-					<span>Copy address</span>
+					<span aria-live="polite">Copy address</span>
 				</button>
 			</div>
 		</div>

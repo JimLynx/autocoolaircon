@@ -120,9 +120,12 @@
 								/></svg
 							>Escríbenos por WhatsApp</a
 						>
-						<button id="email-trigger" class="btn-primary">
-							Escríbenos por Email
-						</button>
+						<a
+							id="email-trigger"
+							class="btn-primary"
+							href="mailto:nico@autocoolaircon.es"
+							>Escríbenos por Email</a
+						>
 					</div>
 				</div>
 				<div class="hero-icon-panel">
@@ -152,8 +155,13 @@
 		<!-- EMAIL MODAL -->
 		<div id="email-modal" class="email-modal" aria-hidden="true">
 			<div class="email-modal-backdrop"></div>
-			<div class="email-modal-panel">
-				<p class="email-modal-label">Abrir con</p>
+			<div
+				class="email-modal-panel"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="email-modal-label"
+			>
+				<p id="email-modal-label" class="email-modal-label">Abrir con</p>
 				<a
 					href="https://mail.google.com/mail/?view=cm&amp;to=nico@autocoolaircon.es"
 					target="_blank"
@@ -208,7 +216,7 @@
 							stroke-linecap="round"
 						/>
 					</svg>
-					Apple Mail
+					App de correo predeterminada
 				</a>
 				<button
 					id="email-copy"
@@ -231,7 +239,7 @@
 							stroke-width="1.6"
 						/>
 					</svg>
-					<span>Copiar dirección</span>
+					<span aria-live="polite">Copiar dirección</span>
 				</button>
 			</div>
 		</div>
